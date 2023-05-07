@@ -1,0 +1,13 @@
+.no-active {
+    text-decoration: none;
+    font-size: 30px;
+    color: white !important;
+    margin: 0px 10px 0px 0px;
+}
+
+.active {
+    font-size: 30px;
+    color: red !important;
+    text-decoration: none;
+    margin: 0px 10px 0px 0px;
+}

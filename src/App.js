@@ -1,14 +1,26 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
-import Header from './components/Header';
+import Home from './views/Home';
+import DetallePizza from './views/DetallePizza';
+import Carrito from './views/Carrito';
+import NotFound from './views/NotFound';
+import ContextProvider from './context/MyContext';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Header />
-    </>
+    <ContextProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/detalle" element={<DetallePizza />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </ContextProvider>
 
   );
 }
