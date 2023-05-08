@@ -33,9 +33,9 @@ export default function DetallePizza() {
                                 <ul>
                                     {detallePizza.ingredients?.map((ingredient, i) => <li className="text-capitalize" key={i}>🍕{ingredient}</li>)}
                                 </ul>
-                                <div className="d-flex justify-content-between">
-                                    <p className="fw-bold fs-2">Precio: ${detallePizza.price?.toLocaleString('es-Cl')}</p>
-                                    <Button variant="danger" onClick={() => addToCart(detallePizza)}>Añadir 🛒</Button>
+                                <div className="d-flex justify-content-between align-items-center">
+                                    <p className="fw-bold fs-2 mb-0">Precio: ${detallePizza.price?.toLocaleString('es-Cl')}</p>
+                                    <Button variant="danger" className="h-25 mb-0" onClick={() => addToCart(detallePizza)}>Añadir 🛒</Button>
                                 </div>
                             </Card.Text>
                         </Col>

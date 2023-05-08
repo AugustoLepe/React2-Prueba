@@ -13,7 +13,6 @@ export default function Carrito() {
                 <div className="p3 bg-white">
                     {agregar.map((producto, i) => (
                         <div key={i} className="d-flex justify-content-between py-2">
-
                             <div className="d-flex justify-content-between aling-item-center">
                                 <img src={producto.img} width="80" alt="" />
                                 <h5 className="mb-0 text-capitalize p-2">{producto.name}</h5>
@@ -29,7 +28,6 @@ export default function Carrito() {
                     <h3 className="my-4">Total: ${total.toLocaleString("es-Cl")}</h3>
                     <Button variant="success">Ir a pagar</Button>
                 </div>
-
             </div>
         </div>
     )
