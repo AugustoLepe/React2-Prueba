@@ -4,7 +4,7 @@ import { MyContext } from "../context/MyContext"
 import { useNavigate } from "react-router-dom"
 
 export default function PizzaCard() {
-    const { pizzas } = useContext(MyContext)
+    const { pizzas, addToCart } = useContext(MyContext)
     const navigate = useNavigate()
 
     const goToPizza = (id) => {
@@ -32,7 +32,7 @@ export default function PizzaCard() {
                                 {/* <Button variant="primary" onClick={() => setPizzas(pizzas.filter(pizza => pizza.id !== pizza.id))}>Eliminar</Button> */}
                                 <div className="d-flex justify-content-around">
                                     <Button variant="info" onClick={() => goToPizza(pizza.id)} >Ver Más 👀</Button>
-                                    <Button variant="danger" className="p-1">Añadir 🍕</Button>
+                                    <Button variant="danger" onClick={() => addToCart(pizza)}>Añadir 🍕</Button>
                                 </div>
                             </Card.Body>
                         </Card>

@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom"
 export default function DetallePizza() {
 
     const [detallePizza, setDetallePizza] = useState({})
-    const { pizzas, setPizzas } = useContext(MyContext)
+    const { pizzas, setPizzas, addToCart } = useContext(MyContext)
     const { id } = useParams()
 
     const getDetallePizza = () => {
@@ -35,7 +35,7 @@ export default function DetallePizza() {
                                 </ul>
                                 <div className="d-flex justify-content-between">
                                     <p className="fw-bold fs-2">Precio: ${detallePizza.price?.toLocaleString('es-Cl')}</p>
-                                    <Button variant="danger">Añadir 🛒</Button>
+                                    <Button variant="danger" onClick={() => addToCart(detallePizza)}>Añadir 🛒</Button>
                                 </div>
                             </Card.Text>
                         </Col>
