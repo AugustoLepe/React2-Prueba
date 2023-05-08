@@ -1,9 +1,15 @@
 import { useContext } from "react"
 import { Button, Card, Container, Row, Col } from "react-bootstrap"
 import { MyContext } from "../context/MyContext"
+import { useNavigate } from "react-router-dom"
 
 export default function PizzaCard() {
     const { pizzas } = useContext(MyContext)
+    const navigate = useNavigate()
+
+    const goToPizza = (id) => {
+        navigate(`/detalle/${id}`)
+    }
 
     return (
         <Container>
@@ -16,17 +22,17 @@ export default function PizzaCard() {
                                 <Card.Title className="text-capitalize fs-3">{pizza.name}</Card.Title>
                                 <hr />
                                 <Card.Text>
-                                    <p>Ingredientes:</p>
+                                    <h6>Ingredientes:</h6>
                                     <ul>
-                                        {pizza.ingredients.map(ingredient => <li className="text-capitalize">🍕{ingredient}</li>)}
+                                        {pizza.ingredients.map((ingredient, i) => <li className="text-capitalize" key={i}>🍕{ingredient}</li>)}
                                     </ul>
                                     <hr />
                                     <p className="fw-bold fs-2 text-center">${pizza.price.toLocaleString('es-Cl')}</p>
                                 </Card.Text>
                                 {/* <Button variant="primary" onClick={() => setPizzas(pizzas.filter(pizza => pizza.id !== pizza.id))}>Eliminar</Button> */}
                                 <div className="d-flex justify-content-around">
-                                    <Button variant="info">Ver Más 👀</Button>
-                                    <Button variant="danger">Añadir 🍕</Button>
+                                    <Button variant="info" onClick={() => goToPizza(pizza.id)} >Ver Más 👀</Button>
+                                    <Button variant="danger" className="p-1">Añadir 🍕</Button>
                                 </div>
                             </Card.Body>
                         </Card>
